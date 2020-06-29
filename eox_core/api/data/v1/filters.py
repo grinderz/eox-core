@@ -6,13 +6,12 @@ from django.contrib.auth.models import User
 from edx_proctoring.models import \
     ProctoredExamStudentAttempt  # pylint: disable=import-error
 from opaque_keys.edx.keys import CourseKey  # pylint: disable=import-error
-from rest_framework import filters
 
 from eox_core.edxapp_wrapper.certificates import get_generated_certificate
 from eox_core.edxapp_wrapper.users import get_course_enrollment
 
 
-class BaseDataApiFilter(filters.FilterSet):
+class BaseDataApiFilter(django_filters.FilterSet):
     """
     TODO: add me
     """

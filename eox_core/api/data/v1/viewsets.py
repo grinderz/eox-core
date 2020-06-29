@@ -8,7 +8,8 @@ import six
 from django.db.models import Q
 from django.conf import settings
 from django.contrib.auth.models import User
-from django.core.urlresolvers import reverse
+from django.urls import reverse
+import django_filters
 from edx_proctoring.models import \
     ProctoredExamStudentAttempt  # pylint: disable=import-error
 from rest_framework import filters, mixins, status, viewsets
@@ -38,7 +39,7 @@ class DataApiViewSet(mixins.ListModelMixin,
     permission_classes = (IsAdminUser,)
 
     pagination_class = DataApiResultsSetPagination
-    filter_backends = (filters.DjangoFilterBackend,)
+    filter_backends = (django_filters.rest_framework.DjangoFilterBackend,)
     prefetch_fields = False
     # Microsite enforcement filter settings
     enforce_microsite_filter = False
